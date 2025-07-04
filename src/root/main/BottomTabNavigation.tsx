@@ -1,22 +1,24 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text , StyleSheet} from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import ProfileScreen from '../../dev/ProfileScreen';
 import HomeScreen from '../../dev/HomeScreen';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import MenuStackNavigation from '../menu/route/MenuStackNavigation';
+import { useThemeStore } from '../../store/useThemeStore';
 const Tab = createBottomTabNavigator();
 type IoniconName = keyof typeof Ionicons.glyphMap;
 const BottomTabNavigation = () => {
 
   const insents = useSafeAreaInsets();
+  const activeColor = useThemeStore(state => state.theme.primary['500'])
+  return (
+    <Tab.Navigator
 
-    return (
-        <Tab.Navigator
-        
-            screenOptions={({route}) => {
-                return({
-                    tabBarHideOnKeyboard: true,
-                    tabBarIcon: ({ focused, color, size }) => {
+      screenOptions={({ route }) => {
+        return ({
+          tabBarHideOnKeyboard: true,
+          tabBarIcon: ({ focused, color, size }) => {
             let iconName: IoniconName = 'help-outline';
 
             if (route.name === 'Menú') {
@@ -33,30 +35,28 @@ const BottomTabNavigation = () => {
 
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: '#3366ff',
+          tabBarActiveTintColor: activeColor,
           tabBarInactiveTintColor: '#8F9BB3',
           tabBarStyle: {
             backgroundColor: '#E4E9F2',
-                    // borderTopWidth: 1
-                    // elevation: 8            
-                    height: 60 + insents.bottom, // Aumenta la altura
-                    // paddingBottom: insents.bottom > 0 ? insents.bottom : 20, // Ajusta el espacio inferior
-                    paddingTop: 5,
-                    // paddingBottom: 10
-                  },
+            height: 65 + insents.bottom, // Aumenta la altura
+            paddingTop: 5,
+          },
           tabBarLabelStyle: {
             fontSize: 12,
-            fontWeight: '900'
-          }
-            })}}
-        >
-            <Tab.Screen name="Menú" component={HomeScreen} />
-            <Tab.Screen name="Puntos" component={ProfileScreen} />
-            <Tab.Screen name="Ordenes" component={ProfileScreen} />
-            <Tab.Screen name="Locales" component={ProfileScreen} />
-            <Tab.Screen name="Ajustes" component={ProfileScreen} />
-        </Tab.Navigator>
-    )
+            fontWeight: '900',
+          },
+          headerShown: false,
+        })
+      }}
+    >
+      <Tab.Screen name="Menú" component={MenuStackNavigation} />
+      <Tab.Screen name="Puntos" component={ProfileScreen} />
+      <Tab.Screen name="Ordenes" component={HomeScreen} />
+      <Tab.Screen name="Locales" component={ProfileScreen} />
+      <Tab.Screen name="Ajustes" component={ProfileScreen} />
+    </Tab.Navigator>
+  )
 }
 export default BottomTabNavigation
 

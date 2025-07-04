@@ -11,6 +11,8 @@ type ColorScale = {
   700: string;
   800: string;
   900: string;
+  1000?: string;
+  1100?: string;
 };
 
 type Theme = {
@@ -23,6 +25,7 @@ type Theme = {
   warning: ColorScale;
   success: ColorScale;
   danger: ColorScale;
+  basic: ColorScale;
 };
 
 type ThemeStore = {
@@ -89,6 +92,19 @@ export const useThemeStore = create<ThemeStore>(() => ({
       700: '#C53030',
       800: '#9B2C2C',
       900: '#FF3D71',
+    },
+    basic: {
+      100: '#FFFFFF',
+      200: '#F7F9FC',
+      300: '#EDF1F7',
+      400: '#E4E9F2',
+      500: '#C5CEE0',
+      600: '#8F9BB3',
+      700: '#2E3A59',
+      800: '#222B45',
+      900: '#1A2138',
+      1000: '#151A30',
+      1100: '#101426',
     },
   },
 }));
