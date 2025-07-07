@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MenuStackNavigation from '../menu/route/MenuStackNavigation';
 import { useThemeStore } from '../../store/useThemeStore';
+import MapScreen from '../../dev/MapScreen';
 const Tab = createBottomTabNavigator();
 type IoniconName = keyof typeof Ionicons.glyphMap;
 const BottomTabNavigation = () => {
@@ -53,7 +54,7 @@ const BottomTabNavigation = () => {
       <Tab.Screen name="Menú" component={MenuStackNavigation} />
       <Tab.Screen name="Puntos" component={ProfileScreen} />
       <Tab.Screen name="Ordenes" component={HomeScreen} />
-      <Tab.Screen name="Locales" component={ProfileScreen} />
+      <Tab.Screen name="Locales" component={MapScreen} />
       <Tab.Screen name="Ajustes" component={ProfileScreen} />
     </Tab.Navigator>
   )
