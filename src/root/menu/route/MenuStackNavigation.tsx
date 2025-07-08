@@ -5,7 +5,7 @@ import PlatilloScreen from '../presentation/screens/PlatilloScreen';
 
 export type StackParamsMenu = {
     Platillos: undefined;
-    Platillo: undefined;
+ 
 }
 
 const StackMenu = createStackNavigator<StackParamsMenu>();
@@ -14,7 +14,7 @@ const MenuStackNavigation = () => {
   return (
     <StackMenu.Navigator>
       <StackMenu.Screen name = 'Platillos' component={MenuScreen} />
-      <StackMenu.Screen name = 'Platillo' component={PlatilloScreen} />
+     
     </StackMenu.Navigator>
   )
 }
