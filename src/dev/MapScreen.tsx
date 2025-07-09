@@ -10,8 +10,8 @@ export default function MapScreen() {
         initialRegion={{
           latitude: 19.33125638836458,
           longitude: -99.18388852822785,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
+          latitudeDelta: 0.001,
+          longitudeDelta: 0.001,
         }}
       >
         <Marker

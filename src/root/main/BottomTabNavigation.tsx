@@ -7,6 +7,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MenuStackNavigation from '../menu/route/MenuStackNavigation';
 import { useThemeStore } from '../../store/useThemeStore';
 import MapScreen from '../../dev/MapScreen';
+import DeliveryPointsScreen from '../points/presentation/screens/DeliveryPointsScreen';
+import FoodStandScreen from '../foodStands/presentation/screens/FoodStandScreen';
+import FoodStackNavigation from '../foodStands/presentation/router/FoodStackNavigation';
+import ErrorScreen from '../shared/components/ui/ErrorScreen';
+import NoticeScreen from '../shared/components/ui/NoticeScreen';
 const Tab = createBottomTabNavigator();
 type IoniconName = keyof typeof Ionicons.glyphMap;
 const BottomTabNavigation = () => {
@@ -47,14 +52,14 @@ const BottomTabNavigation = () => {
             fontSize: 12,
             fontWeight: '900',
           },
-          headerShown: false,
+          headerShown: true,
         })
       }}
     >
-      <Tab.Screen name="Menú" component={MenuStackNavigation} />
-      <Tab.Screen name="Puntos" component={ProfileScreen} />
+      <Tab.Screen name="Menú" component={MenuStackNavigation} options={{headerShown: false}} />
+      <Tab.Screen name="Puntos" component={DeliveryPointsScreen} />
       <Tab.Screen name="Ordenes" component={HomeScreen} />
-      <Tab.Screen name="Locales" component={MapScreen} />
+      <Tab.Screen name="Locales" component={FoodStackNavigation} options={{headerShown: false}} />
       <Tab.Screen name="Ajustes" component={ProfileScreen} />
     </Tab.Navigator>
   )
