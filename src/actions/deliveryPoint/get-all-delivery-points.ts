@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios";
 import { foodAppApi } from "../../config/api/foodAppApi";
-import { DeliveryPointOrderResponse } from "../../infrastructure/interfaces/DeliveryPint.response";
+import { DeliveryPointOrderResponse } from "../../infrastructure/interfaces/DeliveryPoint.response";
 import { log } from "../../config/loggers/logger";
 
 export const getAllDeliveryPoints = async(): Promise<DeliveryPointOrderResponse[]> => {

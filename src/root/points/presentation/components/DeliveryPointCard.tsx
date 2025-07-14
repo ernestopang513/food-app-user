@@ -1,5 +1,5 @@
 import { View, Text, Pressable, StyleSheet, StyleProp, ViewStyle } from 'react-native'
-import { DeliveryPointOrderResponse } from '../../../../infrastructure/interfaces/DeliveryPint.response';
+import { DeliveryPointOrderResponse } from '../../../../infrastructure/interfaces/DeliveryPoint.response';
 import CustomText from '../../../shared/components/ui/CustomText';
 import MapView, { Marker } from 'react-native-maps';
 

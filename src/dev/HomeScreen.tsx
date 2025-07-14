@@ -1,8 +1,9 @@
-import { View, Text, Keyboard, TextInput, TextInputBase, Image, ScrollView } from 'react-native'
+import { View, Text, Keyboard, TextInput, TextInputBase, Image, ScrollView, Alert } from 'react-native'
 import { CustomInput } from './CustomInput'
 import { Ionicons } from '@expo/vector-icons'
 import {  CustomInput3 } from './CustomIcon2'
 import ThemedTextInput from './ThemeTextInput'
+import CustomButton from '../root/shared/components/ui/CustomButton'
 const HomeScreen = () => {
   return (
     <ScrollView
@@ -11,6 +12,17 @@ const HomeScreen = () => {
 
     <View style = {{paddingHorizontal: 20, paddingTop: 30, backgroundColor: 'white', flex: 1}}>
       <Text>HomeScreenn</Text>
+
+      <CustomButton
+        title ="Hola"
+        status='success'
+        appearance='filled'
+        loading = {false}
+        onPress={() => Alert.alert("Título", "Mensaje", [
+  { text: "Cancelar", style: "cancel" },
+  { text: "Aceptar", onPress: () => console.log("OK") }
+])}
+      />
 
       <CustomInput
         label = "Email"

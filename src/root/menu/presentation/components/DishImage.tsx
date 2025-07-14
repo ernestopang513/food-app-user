@@ -1,5 +1,6 @@
 import { View, Text, Pressable, StyleSheet, Image } from 'react-native'
 import { DishImagesResponse } from '../../../../infrastructure/interfaces/DishImages.response';
+import { FadeInImage } from '../../../shared/components/ui/FadeInImage';
 
 interface Props {
     dishUrl: string;
@@ -22,8 +23,21 @@ const DishImage = ({ dishUrl, onPress, width = 200, height = 200 }: Props) => {
         //     ]}
         // >
         <View style={[{ ...styles.imageContainer, width, height }]}>
+            {
+                dishUrl === undefined
+                    ? <Image
+                        source={require("../../../../../assets/no-product-image.png")}
+                        style={styles.image}
+                    />
 
-            <Image
+
+                    : <FadeInImage
+                        uri={  dishUrl}
+                        style={{width, height}}
+                    />
+            }
+           
+            {/* <Image
                 source={
                     dishUrl === undefined
                         ? require("../../../../../assets/no-product-image.png")
@@ -31,7 +45,7 @@ const DishImage = ({ dishUrl, onPress, width = 200, height = 200 }: Props) => {
                 }
                 style={styles.image}
                 resizeMode="cover" // 'cover' o 'contain' según prefieras
-            />
+            /> */}
         </View>
         // </Pressable>
     )
